@@ -1,0 +1,251 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    color: white; /* White text for all buttons */
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Add Pepper Lot Button */
+.add-pepper-btn {
+    background-color: #27ae60; /* Green for "Add" actions */
+}
+
+.add-pepper-btn:hover {
+    background-color: #219a52; /* Darker green */
+}
+
+/* Sell Pepper Lot Button */
+.sell-pepper-btn {
+    background-color: #e74c3c; /* Red for "Sell" actions */
+}
+
+.sell-pepper-btn:hover {
+    background-color: #c0392b; /* Darker red */
+}
+
+/* Summary Button */
+.summary-btn {
+    background-color: #3498db; /* Blue for "Summary" actions */
+}
+
+.summary-btn:hover {
+    background-color: #2980b9; /* Darker blue */
+}
+
+/* Cancel Button (Used in forms) */
+button.cancel-btn {
+    background-color: #d7dddd; /* Gray for "Cancel" actions */
+}
+
+button.cancel-btn:hover {
+    background-color: #7f8c8d; /* Darker gray */
+}
+
+/* Save Pepper Lot Button */
+#savePepperButton {
+    background-color: #95a5a6; /* Yellow for "Save" actions */
+   /*  color: #2c3e50; Dark text for better contrast */
+}
+
+#savePepperButton:hover {
+    background-color: #7f8c8d; /* Darker yellow */
+}
+
+/* Sell Lot Button (Inside Sell Pepper Lots Form) */
+.sell-lot-button {
+    background-color: #e74c3c; /* Red for "Sell" actions */
+    padding: 8px 16px;
+    font-size: 0.9em;
+    border-radius: 6px;
+}
+
+.sell-lot-button:hover {
+    background-color: #c0392b; /* Darker red */
+}
+
+/* Load Summary Button */
+#summaryFilterForm button {
+    background-color: #9b59b6; /* Purple for "Load" actions */
+}
+
+#summaryFilterForm button:hover {
+    background-color: #8e44ad; /* Darker purple */
+}
+
+/* Close Summary Button */
+#pepperSummarySection button {
+    background-color: #95a5a6; /* Gray for "Close" actions */
+}
+
+#pepperSummarySection button:hover {
+    background-color: #7f8c8d; /* Darker gray */
+}
+
+/* Form Styles */
+#addPepperForm, #sellPepperLotsForm, #pepperSummarySection {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #34495e;
+    font-weight: 500;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 1em;
+    color: #2c3e50;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    flex: 1;
+}
+
+/* Table Styles */
+.pepper-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+.pepper-table th, .pepper-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.pepper-table th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.pepper-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Summary Section Styles */
+#pepperSummarySection {
+    margin-top: 20px;
+}
+
+#summaryFilterForm {
+    margin-bottom: 20px;
+}
+
+#summaryFilterForm label {
+    display: block;
+    margin-bottom: 5px;
+    color: #34495e;
+    font-weight: 500;
+}
+
+#summaryFilterForm select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 1em;
+    color: #2c3e50;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#summaryFilterForm select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.summary-table th, .summary-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.summary-table th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+}
+
+.summary-table tr:hover {
+    background-color: #f5f5f5;
+}

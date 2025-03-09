@@ -1,0 +1,149 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background-color: #f8f9fa; /* Light grey background */
+    color: #343a40; /* Dark grey text */
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff; /* White container background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+}
+
+h1 {
+    color: #2c3e50; /* Primary blue header color */
+    margin-bottom: 25px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Date Range Selector Styles */
+.date-range-selector {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f1f3f5; /* Light background for input section */
+    border-radius: 8px;
+    border: 1px solid #e9ecef; /* Light border */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.date-range-selector label {
+    font-weight: bold;
+    color: #495057; /* Slightly darker grey for labels */
+}
+
+.date-range-selector input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ced4da; /* Light grey border for inputs */
+    border-radius: 6px;
+    font-size: 1em;
+    color: #495057;
+}
+
+.date-range-selector input[type="date"]:focus {
+    outline: none;
+    border-color: #007bff; /* Highlight on focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus shadow */
+}
+
+/* Button Styles */
+#generateReport,
+#downloadReportButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+#generateReport {
+    background-color: #3498db; /* Primary blue button color */
+}
+
+#generateReport:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added hover shadow */
+}
+
+#downloadReportButton {
+    background-color: #28a745; /* Green button color for download */
+    margin-top: 20px;
+}
+
+#downloadReportButton:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added hover shadow */
+}
+
+/* Salary Display Area Styles */
+#salaryDisplayArea {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* White background for display area */
+    border-radius: 8px;
+    border: 1px solid #e9ecef; /* Light border */
+}
+
+#salaryDisplayArea h2 {
+    color: #2c3e50; /* Dark grey for headers */
+    margin-bottom: 15px;
+    border-bottom: 1px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Table Styles */
+.salary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lighter shadow for table */
+}
+
+.salary-table th,
+.salary-table td {
+    padding: 12px;
+    text-align: center; /* Center text in table cells */
+    border-bottom: 1px solid #e0e0e0; /* Lighter border for table cells */
+}
+
+.salary-table th {
+    background-color: #2c3e50; /* Dark grey table header */
+    color: white;
+    font-weight: bold;
+}
+
+.salary-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Even row background */
+}
+
+.salary-table tbody tr:hover {
+    background-color: #e9ecef; /* Hover row background */
+}
+
+.salary-table tfoot tr {
+    background-color: #2c3e50; /* Dark grey footer */
+    color: white;
+    font-weight: bold;
+}
+
+/* Grand Total Styles */
+#salaryDisplayArea h2:last-of-type {
+    margin-top: 20px;
+    color: #28a745; /* Green for grand total */
+    text-align: center;
+}

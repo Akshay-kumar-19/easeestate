@@ -1,0 +1,142 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Dropdown Styles */
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #34495e;
+    font-weight: 500;
+}
+
+select, input[type="date"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 1em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:focus, input[type="date"]:focus, input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Button Styles */
+button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.present-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.present-btn:hover {
+    background-color: #219a52;
+    transform: scale(1.05);
+}
+
+.absent-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.absent-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.submit-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Specific Styles for Update Overtime Page */
+#workersTable td select, #workersTable td input[type="number"] {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 0.9em;
+    color: #2c3e50;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#workersTable td select:focus, #workersTable td input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Additional Styles for Update Hours and Select Job for Each Worker */
+#workersTable td input[type="number"] {
+    width: 80px;
+}
+
+#workersTable td select {
+    width: 150px;
+}

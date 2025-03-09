@@ -1,0 +1,381 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Input Section Styles */
+.input-section {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #34495e;
+    font-weight: 500;
+}
+
+input[type="date"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 1em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="date"]:focus, select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Crop Selection Section */
+.crop-selection {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.crop-selection select {
+    flex: 1;
+}
+
+.crop-selection button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.crop-selection button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.crop-selection button:active {
+    transform: scale(0.98);
+}
+
+/* Rate/Wage Button Styles */
+.rate-wage-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.rate-wage-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    color: #2c3e50;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.rate-wage-btn.active {
+    background-color: #3498db;
+    color: white;
+}
+
+.rate-wage-btn:hover {
+    background-color: #2980b9;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rate-wage-btn:active {
+    transform: scale(0.98);
+}
+
+/* Workers Section Styles */
+#workers_section {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    table-layout: fixed; /* ADDED: Fixed table layout for even columns */
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Submit Section Styles */
+.submit-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.submit-btn {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #219a52;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Table Input Field Styles */
+table input[type="number"], table input[type="text"] {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 0.9em;
+    color: #2c3e50;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+table input[type="number"]:focus, table input[type="text"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Table Header Styles */
+table th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #3498db;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 20%; /* ADJUSTED: Set width for header columns */
+}
+
+/* Table Row Hover Effect */
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Table Cell Padding and Alignment */
+table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures columns have equal width */
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+table thead {
+    border-bottom: 2px solid #3498db;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Input Fields in Table */
+table input[type="number"], table input[type="text"] {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 0.9em;
+    color: #2c3e50;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+table input[type="number"]:focus, table input[type="text"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+/* Table Header Styles */
+table th {
+    background-color: #2c3e50; /* Dark background */
+    color: white; /* White text */
+    font-weight: bold; /* Bold text */
+    padding: 12px; /* Padding for spacing */
+    text-align: left; /* Align text to the left */
+    border-bottom: 2px solid #3498db; /* Bottom border for separation */
+    position: sticky; /* Make header sticky */
+    top: 0; /* Stick to the top of the container */
+    z-index: 1; /* Ensure header stays above the body */
+    width: 20%; /* ADJUSTED: Set width for header columns */
+}
+
+/* Add a border to the header for better separation */
+table thead {
+    border-bottom: 2px solid #3498db;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th {
+    background-color: #1f2d3d;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    width: 20%; /* ADJUSTED: Set width for header columns */
+}
+
+thead tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+tbody {
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /*  ADDED:  Ensures columns have equal width */
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+table thead {
+    border-bottom: 2px solid #3498db;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Input Fields in Table */
+table input[type="number"], table input[type="text"] {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 0.9em;
+    color: #2c3e50;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+table input[type="number"]:focus, table input[type="text"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+/* Table Header Styles */
+table th {
+    background-color: #2c3e50; /* Dark background */
+    color: white; /* White text */
+    font-weight: bold; /* Bold text */
+    padding: 12px; /* Padding for spacing */
+    text-align: left; /* Align text to the left */
+    border-bottom: 2px solid #3498db; /* Bottom border for separation */
+    position: sticky; /* Make header sticky */
+    top: 0; /* Stick to the top of the container */
+    z-index: 1; /* Ensure header stays above the body */
+    width: 20%; /* ADJUSTED: Set width for header columns */
+}
+
+/* Add a border to the header for better separation */
+table thead {
+    border-bottom: 2px solid #3498db;
+}
