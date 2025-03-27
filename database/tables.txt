@@ -1,0 +1,238 @@
+drop database easeestate;
+create database easeestate;
+use easeestate;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE jobs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    job_name VARCHAR(255) NOT NULL,
+    daily_wage DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+    per_kg_rate DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+    overtime_hourly_rate DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE labour_lead (
+    lead_id INT AUTO_INCREMENT PRIMARY KEY,
+    lead_name VARCHAR(255) NOT NULL,
+    user_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE workers (
+    worker_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,  
+    lead_id INT NOT NULL, 
+    worker_name VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (lead_id) REFERENCES labour_lead(lead_id) ON DELETE CASCADE
+);
+
+CREATE TABLE attendance (
+    attendance_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    worker_id INTEGER NOT NULL,
+    lead_id INTEGER NOT NULL,
+    job_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    date DATE NOT NULL,
+    job_role TEXT NOT NULL,
+    present BOOLEAN DEFAULT 0,
+    FOREIGN KEY (worker_id) REFERENCES workers(worker_id) ON DELETE CASCADE,
+    FOREIGN KEY (lead_id) REFERENCES labour_lead(lead_id) ON DELETE CASCADE,
+    FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE INDEX unique_attendance (worker_id, date, job_id, lead_id)
+);
+
+CREATE TABLE `overtime` (
+  `overtime_id` int NOT NULL AUTO_INCREMENT,
+  `worker_id` int NOT NULL,
+  `lead_id` int NOT NULL,
+  `job_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `date` date NOT NULL,
+  `overtime_hours` decimal(4,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`overtime_id`),
+  UNIQUE KEY `unique_overtime` (`worker_id`, `date`, `job_id`, `lead_id`),
+  KEY `lead_id` (`lead_id`),
+  KEY `job_id` (`job_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `overtime_ibfk_1` FOREIGN KEY (`worker_id`) REFERENCES `workers` (`worker_id`) ON DELETE CASCADE,
+  CONSTRAINT `overtime_ibfk_2` FOREIGN KEY (`lead_id`) REFERENCES `labour_lead` (`lead_id`) ON DELETE CASCADE,
+  CONSTRAINT `overtime_ibfk_3` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `overtime_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE crops_plucked (
+    crops_plucked_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,    
+    worker_id INT NOT NULL,
+    lead_id INT NOT NULL,
+    job_id INT NOT NULL,
+    plucked_date DATE NOT NULL,
+    ripe_kg DECIMAL(10, 2) NULL,
+    unripe_kg DECIMAL(10, 2) NULL,
+    total_kg DECIMAL(10, 2) NULL,
+    kone_count INT NULL,
+    per_kg_rate DECIMAL(10, 2) NULL,
+    daily_wage DECIMAL(10, 2) NULL,
+    salary_calculation_type ENUM('per_kg', 'daily_wage') NOT NULL DEFAULT 'per_kg',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE, -- Corrected: REFERENCES users(id)
+    FOREIGN KEY (worker_id) REFERENCES workers(worker_id) ON DELETE CASCADE,
+    FOREIGN KEY (lead_id) REFERENCES labour_lead(lead_id) ON DELETE RESTRICT,
+    FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE RESTRICT
+);
+
+
+
+CREATE TABLE coffee_lots (
+    lot_number VARCHAR(50) PRIMARY KEY,
+    date_received DATE NOT NULL,
+    coffee_type VARCHAR(255) NOT NULL,
+    total_bags INT NOT NULL,
+    total_weight_kg DECIMAL(10, 2) NOT NULL,
+    moisture_level DECIMAL(5, 2) NOT NULL
+);
+
+CREATE TABLE coffee_inventory_history (
+    lot_number INT PRIMARY KEY,
+    date_received DATE NOT NULL,
+    coffee_type VARCHAR(50) NOT NULL,
+    total_bags INT NOT NULL,
+    total_weight_kg DECIMAL(10, 2) NOT NULL,
+    moisture_level INT NOT NULL,
+    date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE pepper_inventory_history (
+    lot_number INT PRIMARY KEY,
+    date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date_received DATE NOT NULL,
+    total_bags INT NOT NULL,
+    total_weight_kg DECIMAL(10, 2) NOT NULL,
+    moisture_level DECIMAL(5, 2) NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE pepper_inventory (
+    lot_number INT PRIMARY KEY,
+    date_received DATE NOT NULL,
+    total_bags INT NOT NULL,
+    total_weight_kg DECIMAL(10, 2) NOT NULL,
+    moisture_level DECIMAL(5, 2) NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE areca_inventory (
+    lot_number INT PRIMARY KEY,
+    date_received DATE NOT NULL,
+    total_bags INT NOT NULL,
+    total_weight_kg DECIMAL(10, 2) NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE areca_inventory_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    lot_number INT NOT NULL,
+    date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date_received DATE NOT NULL,
+    total_bags INT NOT NULL,
+    total_weight_kg DECIMAL(10, 2) NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    UNIQUE KEY unique_lot_number_date_added (lot_number, date_added)
+);
+
+
+
+CREATE TABLE fertilizer_inventory (
+    fertilizer_name VARCHAR(255) PRIMARY KEY,
+    unit VARCHAR(50) NOT NULL,
+    total_quantity DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE fertilizer_purchase_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    purchase_date DATE NOT NULL,
+    fertilizer_name VARCHAR(255) NOT NULL,
+    quantity_purchased DECIMAL(10, 2) NOT NULL,
+    unit VARCHAR(50) NOT NULL,
+    purchase_lot_number VARCHAR(255),
+    supplier_name VARCHAR(255),
+    user_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (fertilizer_name) REFERENCES fertilizer_inventory(fertilizer_name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE fertilizer_usage_history (
+    usage_id INT AUTO_INCREMENT PRIMARY KEY,
+    date_used DATE NOT NULL,
+    fertilizer_name VARCHAR(255) NOT NULL,
+    quantity_used DECIMAL(10, 2) NOT NULL,
+    unit VARCHAR(50) NOT NULL,
+    field_location VARCHAR(255),
+    lead_id INT NULL, -- Added lead_id column (for Labour Lead)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (fertilizer_name) REFERENCES fertilizer_inventory(fertilizer_name) ON DELETE CASCADE,
+    FOREIGN KEY (lead_id) REFERENCES labour_lead(lead_id) -- Foreign key for labour_lead
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+
+CREATE TABLE tools (
+    tool_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    tool_name VARCHAR(255) NOT NULL,
+    tool_quantity INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE tool_assignments (
+    assignment_id INT AUTO_INCREMENT PRIMARY KEY,
+    tool_id INT NOT NULL, 
+    assigned_worker_id INT NOT NULL, 
+    quantity_assigned INT NOT NULL DEFAULT 1, 
+    assignment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    return_date TIMESTAMP NULL, 
+    status VARCHAR(50) NOT NULL DEFAULT 'assigned',
+    notes TEXT, -- Optional notes about the assignment
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (tool_id) REFERENCES tools(tool_id),
+    FOREIGN KEY (assigned_worker_id) REFERENCES workers(worker_id) ON DELETE RESTRICT
+);
+
+CREATE TABLE tool_returns (
+    return_id INT AUTO_INCREMENT PRIMARY KEY,
+    assignment_id INT NOT NULL,
+    quantity_returned INT NOT NULL,
+    return_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    return_notes TEXT,
+    user_id INT NOT NULL,
+    FOREIGN KEY (assignment_id) REFERENCES tool_assignments(assignment_id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
