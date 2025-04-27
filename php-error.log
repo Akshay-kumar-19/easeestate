@@ -1,0 +1,30 @@
+[22-Feb-2025 09:40:58 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\easeestate\save_crops_plucked.php:75
+Stack trace:
+#0 C:\xampp\htdocs\easeestate\save_crops_plucked.php(75): mysqli_stmt->bind_param('iiiisddddsss', 1, '1', 1, '1', '2025-02-22', 10, 10, 20, 0, 'per_kg', 4, 'per_kg', 0)
+#1 {main}
+  thrown in C:\xampp\htdocs\easeestate\save_crops_plucked.php on line 75
+[22-Feb-2025 09:43:16 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\easeestate\save_crops_plucked.php:75
+Stack trace:
+#0 C:\xampp\htdocs\easeestate\save_crops_plucked.php(75): mysqli_stmt->bind_param('iiiisddddsss', 1, '6', 2, '2', '2025-02-22', 0, 0, 10, 0, 'per_kg', 6, 'per_kg', 0)
+#1 {main}
+  thrown in C:\xampp\htdocs\easeestate\save_crops_plucked.php on line 75
+[22-Feb-2025 09:44:25 Europe/Berlin] JSON Decode Error: Syntax error - Request Body: 
+[22-Feb-2025 09:44:26 Europe/Berlin] JSON Decode Error: Syntax error - Request Body: 
+[22-Feb-2025 09:45:57 Europe/Berlin] JSON Decode Error: Syntax error - Request Body: 
+[22-Feb-2025 09:52:42 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in C:\xampp\htdocs\easeestate\save_crops_plucked.php:69
+Stack trace:
+#0 C:\xampp\htdocs\easeestate\save_crops_plucked.php(69): mysqli_stmt->bind_param('iiiisdddddss', 1, '1', 1, '1', '2025-02-22', 2, 2, 0, 0, 4, 0, 'per_kg')
+#1 {main}
+  thrown in C:\xampp\htdocs\easeestate\save_crops_plucked.php on line 69
+[22-Feb-2025 09:53:55 Europe/Berlin] JSON Decode Error: Syntax error - Request Body: 
+[22-Feb-2025 09:54:56 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in C:\xampp\htdocs\easeestate\save_crops_plucked.php:69
+Stack trace:
+#0 C:\xampp\htdocs\easeestate\save_crops_plucked.php(69): mysqli_stmt->bind_param('iiiisdddddss', 1, '6', 2, '2', '2025-02-22', 0, 0, 0, 0, 6, 0, 'per_kg')
+#1 {main}
+  thrown in C:\xampp\htdocs\easeestate\save_crops_plucked.php on line 69
+[22-Feb-2025 09:56:26 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in C:\xampp\htdocs\easeestate\save_crops_plucked.php:69
+Stack trace:
+#0 C:\xampp\htdocs\easeestate\save_crops_plucked.php(69): mysqli_stmt->bind_param('iiiisdddddss', 1, '6', 2, '2', '2025-02-22', 0, 0, 0, 0, 6, 0, 'per_kg')
+#1 {main}
+  thrown in C:\xampp\htdocs\easeestate\save_crops_plucked.php on line 69
+[22-Feb-2025 09:56:31 Europe/Berlin] JSON Decode Error: Syntax error - Request Body: 
